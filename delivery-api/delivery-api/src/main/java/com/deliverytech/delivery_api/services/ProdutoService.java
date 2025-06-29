@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import com.deliverytech.delivery_api.entity.Restaurante;
+import com.deliverytech.delivery_api.repository.RestauranteRepository;
 import com.deliverytech.delivery_api.entity.Produto;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Autowired
-    private RestauranteServices restauranteRepository;
+    private RestauranteRepository restauranteRepository;
 
     public Produto cadastrar(Produto produto, Long restauranteId) {
         Restaurante restaurante = restauranteRepository.findById(restauranteId)
@@ -41,8 +42,6 @@ public class ProdutoService {
         List<Produto> findByDisponivelTrue();
     }
 
-    
-
     public List<Produto> listarPorCategoria(String categoria) {
         return produtoRepository.findByCategoria(categoria);
     }
@@ -61,5 +60,4 @@ public class ProdutoService {
         return produtoRepository.save(produto);
     }
 
-  
 }

@@ -15,14 +15,14 @@ public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    @Autowired
-    private ItemPedidoRepository itemPedidoRepository;
+    // @Autowired
+    // private ItemPedidoRepository itemPedidoRepository;
 
     @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired
-    private RestauranteServices restauranteRepository;
+    private RestauranteRepository restauranteRepository;
 
     @Autowired
     private ProdutoRepository produtoRepository;
