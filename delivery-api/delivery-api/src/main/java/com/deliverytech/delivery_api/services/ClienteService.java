@@ -1,5 +1,6 @@
 package com.deliverytech.delivery_api.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,10 @@ public class ClienteService {
         if (clienteRepository.findByEmail(cliente.getEmail()).isPresent()) {
             throw new RuntimeException("E-mail já cadastrado.");
         }
-        cliente.setAtivo(true); // Definindo como ativo por padrão
         return clienteRepository.save(cliente);
     }
 
-    public List<Cliente> listar() {
+    public List<Cliente> listarTodos() {
         return clienteRepository.findAll();
     }
 
@@ -34,9 +34,10 @@ public class ClienteService {
     public Cliente atualizar(Long id, Cliente novoCliente) {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-
         cliente.setNome(novoCliente.getNome());
         cliente.setEmail(novoCliente.getEmail());
+        cliente.setTelefone(novoCliente.getTelefone());
+        cliente.setEndereco(novoCliente.getEndereco());
         return clienteRepository.save(cliente);
     }
 

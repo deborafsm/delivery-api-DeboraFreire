@@ -21,8 +21,8 @@ public class ClienteController {
     }
 
     @GetMapping
-    public List<Cliente> listar() {
-        return clienteService.listar();
+    public List<Cliente> listarTodos() {
+        return clienteService.listarTodos();
     }
 
     @GetMapping("/{id}")
